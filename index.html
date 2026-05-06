@@ -1,271 +1,609 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Modern Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-  scroll-behavior:smooth;
-}
-
-body{
-  background:#0f172a;
-  color:white;
-}
-
-/* NAVBAR */
-nav{
-  position:fixed;
-  width:100%;
-  top:0;
-  left:0;
-  padding:15px 80px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  z-index:1000;
-}
-
-nav h2{
-  color:#38bdf8;
-}
-
-nav a{
-  color:white;
-  margin:0 15px;
-  text-decoration:none;
-  transition:0.3s;
-}
-
-nav a:hover{
-  color:#38bdf8;
-}
-
-/* HERO */
-.hero{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  background: radial-gradient(circle at top,#1e293b,#0f172a);
-}
-
-.hero h1{
-  font-size:50px;
-  animation:fadeIn 2s ease;
-}
-
-.hero span{
-  color:#38bdf8;
-}
-
-.hero p{
-  margin-top:10px;
-  opacity:0.8;
-}
-
-.btn{
-  margin-top:20px;
-  padding:10px 20px;
-  border:none;
-  background:#38bdf8;
-  color:black;
-  border-radius:8px;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:scale(1.1);
-}
-
-/* SECTIONS */
-section{
-  padding:80px 100px;
-}
-
-.title{
-  text-align:center;
-  font-size:30px;
-  margin-bottom:40px;
-  color:#38bdf8;
-}
-
-/* ABOUT */
-.about{
-  display:flex;
-  justify-content:space-between;
-  gap:40px;
-}
-
-.card{
-  flex:1;
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:15px;
-  backdrop-filter: blur(10px);
-  transition:0.4s;
-}
-
-.card:hover{
-  transform:translateY(-10px);
-}
-
-/* SKILLS */
-.skills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:15px;
-  justify-content:center;
-}
-
-.skill{
-  padding:10px 20px;
-  background:#1e293b;
-  border-radius:20px;
-  transition:0.3s;
-}
-
-.skill:hover{
-  background:#38bdf8;
-  color:black;
-}
-
-/* PROJECTS */
-.projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.project{
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:15px;
-  transition:0.3s;
-}
-
-.project:hover{
-  transform:scale(1.05);
-}
-
-/* CONTACT */
-.contact{
-  text-align:center;
-}
-
-input,textarea{
-  width:60%;
-  padding:10px;
-  margin:10px 0;
-  border:none;
-  border-radius:8px;
-}
-
-/* ANIMATION */
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  section{padding:60px 20px;}
-  nav{padding:15px 20px;}
-  .about{flex-direction:column;}
-  input,textarea{width:90%;}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juyel Rana — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav>
-  <h2>DevPortfolio</h2>
-  <div>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div>
-    <h1>Hi, I'm <span>Your Name</span></h1>
-    <p>Modern Web Developer | UI Designer | Learner</p>
-    <button class="btn" onclick="scrollToSection('projects')">View Projects</button>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="title">About Me</div>
-  <div class="about">
-    <div class="card">
-      <h3>Who I Am</h3>
-      <p>I am a passionate web developer building modern and responsive websites.</p>
+  <!-- ───────── NAVBAR ───────── -->
+  <header id="navbar">
+    <nav class="nav-inner">
+      <a class="logo" href="#hero">JR<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="sun">☀</span><span class="moon">☽</span>
+        </button>
+        <a href="#contact" class="btn btn-outline btn-sm">Hire Me</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" class="mob-link">About</a>
+      <a href="#skills" class="mob-link">Skills</a>
+      <a href="#projects" class="mob-link">Projects</a>
+      <a href="#services" class="mob-link">Services</a>
+      <a href="#contact" class="mob-link">Contact</a>
     </div>
-    <div class="card">
-      <h3>Goal</h3>
-      <p>To become a professional full-stack developer and build real-world apps.</p>
+  </header>
+
+  <!-- ───────── HERO ───────── -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="grid-lines"></div>
     </div>
-  </div>
-</section>
+    <div class="hero-content">
+      <div class="hero-badge fade-up">👋 Available for work</div>
+      <h1 class="hero-name fade-up delay-1">
+        Juyel<br /><span class="gradient-text">Rana</span>
+      </h1>
+      <p class="hero-tagline fade-up delay-2">
+        IT Professional&nbsp;&nbsp;·&nbsp;&nbsp;UI/UX Designer&nbsp;&nbsp;·&nbsp;&nbsp;Problem Solver
+      </p>
+      <p class="hero-sub fade-up delay-3">
+        Crafting elegant digital experiences where design meets engineering.
+        Turning complex ideas into intuitive products.
+      </p>
+      <div class="hero-cta fade-up delay-4">
+        <a href="#contact" class="btn btn-primary">Hire Me</a>
+        <a href="#projects" class="btn btn-ghost">View Projects ↓</a>
+      </div>
+      <div class="hero-stats fade-up delay-5">
+        <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Years Exp.</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">40+</span><span class="stat-label">Projects</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">25+</span><span class="stat-label">Clients</span></div>
+      </div>
+    </div>
+    <div class="hero-visual fade-up delay-3">
+      <div class="avatar-ring">
+        <div class="avatar-inner">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" class="avatar-svg">
+            <circle cx="60" cy="45" r="22" fill="var(--accent)" opacity="0.15"/>
+            <circle cx="60" cy="45" r="18" fill="var(--accent)" opacity="0.3"/>
+            <circle cx="60" cy="43" r="14" fill="var(--text-primary)"/>
+            <ellipse cx="60" cy="95" rx="30" ry="18" fill="var(--accent)" opacity="0.2"/>
+            <ellipse cx="60" cy="90" rx="24" ry="14" fill="var(--text-primary)"/>
+          </svg>
+        </div>
+        <div class="orbit-dot orbit-dot-1"></div>
+        <div class="orbit-dot orbit-dot-2"></div>
+        <div class="orbit-dot orbit-dot-3"></div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="title">Skills</div>
-  <div class="skills">
-    <div class="skill">HTML</div>
-    <div class="skill">CSS</div>
-    <div class="skill">JavaScript</div>
-    <div class="skill">GitHub</div>
-    <div class="skill">React (Learning)</div>
-  </div>
-</section>
+  <!-- ───────── ABOUT ───────── -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-col reveal">
+          <div class="about-img-wrap">
+            <div class="about-img-placeholder">
+              <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="220" rx="16" fill="url(#aboutGrad)"/>
+                <circle cx="100" cy="75" r="35" fill="rgba(255,255,255,0.15)"/>
+                <circle cx="100" cy="70" r="28" fill="rgba(255,255,255,0.2)"/>
+                <ellipse cx="100" cy="170" rx="55" ry="35" fill="rgba(255,255,255,0.1)"/>
+                <ellipse cx="100" cy="160" rx="45" ry="28" fill="rgba(255,255,255,0.15)"/>
+                <defs>
+                  <linearGradient id="aboutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:var(--grad-start)"/>
+                    <stop offset="100%" style="stop-color:var(--grad-end)"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="img-label">Juyel Rana</div>
+            </div>
+            <div class="about-badge-card glass">
+              <span class="badge-icon">🏆</span>
+              <div><strong>Top Rated</strong><br/><small>Freelancer</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="about-text-col reveal delay-2">
+          <div class="section-label">About Me</div>
+          <h2 class="section-title">Passionate about <span class="gradient-text">creating</span> meaningful experiences</h2>
+          <p class="about-bio">
+            I'm Juyel Rana, an IT professional and UI/UX designer with a strong passion for crafting digital solutions that are both beautiful and functional. I bridge the gap between technical excellence and creative design.
+          </p>
+          <p class="about-bio">
+            With over 3 years of experience across web development, interface design, and backend systems, I bring a holistic approach to every project — ensuring that performance, accessibility, and aesthetics work in harmony.
+          </p>
+          <div class="highlights">
+            <div class="highlight-item">
+              <span class="highlight-icon">✦</span>
+              <span>Full-stack web development</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">✦</span>
+              <span>User-centered design thinking</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">✦</span>
+              <span>Agile & collaborative workflow</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">✦</span>
+              <span>Clean, maintainable code</span>
+            </div>
+          </div>
+          <div class="about-actions">
+            <a href="#contact" class="btn btn-primary">Let's Talk</a>
+            <a href="#" class="btn btn-outline" download>Download CV</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="title">Projects</div>
-  <div class="projects">
-    <div class="project">Portfolio Website</div>
-    <div class="project">Calculator App</div>
-    <div class="project">To-Do List</div>
-  </div>
-</section>
+  <!-- ───────── SKILLS ───────── -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">What I Know</div>
+        <h2 class="section-title">Skills & <span class="gradient-text">Expertise</span></h2>
+        <p class="section-sub">A curated set of technologies I work with to build remarkable products.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category glass reveal">
+          <h3 class="cat-title">Frontend</h3>
+          <div class="skill-bars">
+            <div class="skill-item" data-pct="92">
+              <div class="skill-meta"><span>HTML5 / CSS3</span><span class="pct-label">92%</span></div>
+              <div class="skill-track"><div class="skill-bar" style="--w:92%"></div></div>
+            </div>
+            <div class="skill-item" data-pct="85">
+              <div class="skill-meta"><span>JavaScript (ES6+)</span><span class="pct-label">85%</span></div>
+              <div class="skill-track"><div class="skill-bar" style="--w:85%"></div></div>
+            </div>
+            <div class="skill-item" data-pct="80">
+              <div class="skill-meta"><span>React.js</span><span class="pct-label">80%</span></div>
+              <div class="skill-track"><div class="skill-bar" style="--w:80%"></div></div>
+            </div>
+            <div class="skill-item" data-pct="75">
+              <div class="skill-meta"><span>Tailwind CSS</span><span class="pct-label">75%</span></div>
+              <div class="skill-track"><div class="skill-bar" style="--w:75%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category glass reveal delay-1">
+          <h3 class="cat-title">Backend</h3>
+          <div class="skill-bars">
+            <div class="skill-item" data-pct="78">
+              <div class="skill-meta"><span>Node.js</span><span class="pct-label">78%</span></div>
+              <div class="skill-track"><div class="skill-bar" style="--w:78%"></div></div>
+            </div>
+            <div class="skill-item" data-pct="72">
+              <div class="skill-meta"><span>Express.js</span><span class="pct-label">72%</span></div>
+              <div class="skill-track"><div class="skill-bar" style="--w:72%"></div></div>
+            </div>
+            <div class="skill-item" data-pct="68">
+              <div class="skill-meta"><span>MongoDB</span><span class="pct-label">68%</span></div>
+              <div class="skill-track"><div class="skill-bar" style="--w:68%"></div></div>
+            </div>
+            <div class="skill-item" data-pct="65">
+              <div class="skill-meta"><span>MySQL</span><span class="pct-label">65%</span></div>
+              <div class="skill-track"><div class="skill-bar" style="--w:65%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category glass reveal delay-2">
+          <h3 class="cat-title">Design & Tools</h3>
+          <div class="skill-bars">
+            <div class="skill-item" data-pct="88">
+              <div class="skill-meta"><span>Figma</span><span class="pct-label">88%</span></div>
+              <div class="skill-track"><div class="skill-bar" style="--w:88%"></div></div>
+            </div>
+            <div class="skill-item" data-pct="82">
+              <div class="skill-meta"><span>UI/UX Design</span><span class="pct-label">82%</span></div>
+              <div class="skill-track"><div class="skill-bar" style="--w:82%"></div></div>
+            </div>
+            <div class="skill-item" data-pct="76">
+              <div class="skill-meta"><span>Git / GitHub</span><span class="pct-label">76%</span></div>
+              <div class="skill-track"><div class="skill-bar" style="--w:76%"></div></div>
+            </div>
+            <div class="skill-item" data-pct="70">
+              <div class="skill-meta"><span>Adobe XD / PS</span><span class="pct-label">70%</span></div>
+              <div class="skill-track"><div class="skill-bar" style="--w:70%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="title">Contact Me</div>
-  <div class="contact">
-    <input type="text" placeholder="Your Name"><br>
-    <input type="email" placeholder="Your Email"><br>
-    <textarea rows="5" placeholder="Message"></textarea><br>
-    <button class="btn">Send</button>
-  </div>
-</section>
+      <div class="tech-icons reveal">
+        <div class="tech-scroll">
+          <div class="tech-track">
+            <span class="tech-chip">HTML5</span>
+            <span class="tech-chip">CSS3</span>
+            <span class="tech-chip">JavaScript</span>
+            <span class="tech-chip">React</span>
+            <span class="tech-chip">Node.js</span>
+            <span class="tech-chip">MongoDB</span>
+            <span class="tech-chip">Figma</span>
+            <span class="tech-chip">Git</span>
+            <span class="tech-chip">REST API</span>
+            <span class="tech-chip">Tailwind</span>
+            <span class="tech-chip">HTML5</span>
+            <span class="tech-chip">CSS3</span>
+            <span class="tech-chip">JavaScript</span>
+            <span class="tech-chip">React</span>
+            <span class="tech-chip">Node.js</span>
+            <span class="tech-chip">MongoDB</span>
+            <span class="tech-chip">Figma</span>
+            <span class="tech-chip">Git</span>
+            <span class="tech-chip">REST API</span>
+            <span class="tech-chip">Tailwind</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-// smooth scroll
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:"smooth"});
-}
-</script>
+  <!-- ───────── PROJECTS ───────── -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">My Work</div>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        <p class="section-sub">A selection of projects that showcase my skills and approach to problem-solving.</p>
+      </div>
+      <div class="projects-grid">
 
+        <div class="project-card glass reveal">
+          <div class="project-img" style="--card-color:#0ea5e9">
+            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="180" fill="url(#p1)"/>
+              <rect x="20" y="30" width="120" height="10" rx="5" fill="rgba(255,255,255,0.3)"/>
+              <rect x="20" y="50" width="80" height="8" rx="4" fill="rgba(255,255,255,0.2)"/>
+              <rect x="20" y="80" width="280" height="70" rx="8" fill="rgba(255,255,255,0.1)"/>
+              <rect x="30" y="90" width="100" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+              <rect x="30" y="108" width="140" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+              <rect x="30" y="120" width="110" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+              <defs><linearGradient id="p1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#6366f1"/></linearGradient></defs>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span>
+            </div>
+            <h3 class="project-title">E-Commerce Platform</h3>
+            <p class="project-desc">A full-featured online store with cart management, payment integration, user authentication, and an admin dashboard for inventory control.</p>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Live Demo ↗</a>
+              <a href="#" class="btn btn-outline btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass reveal delay-1">
+          <div class="project-img" style="--card-color:#8b5cf6">
+            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="180" fill="url(#p2)"/>
+              <circle cx="160" cy="70" r="40" fill="rgba(255,255,255,0.1)"/>
+              <circle cx="160" cy="70" r="28" fill="rgba(255,255,255,0.15)"/>
+              <rect x="60" y="130" width="200" height="8" rx="4" fill="rgba(255,255,255,0.2)"/>
+              <rect x="80" y="148" width="160" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+              <defs><linearGradient id="p2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#ec4899"/></linearGradient></defs>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Figma</span><span class="tag">React</span><span class="tag">CSS</span>
+            </div>
+            <h3 class="project-title">SaaS Dashboard UI</h3>
+            <p class="project-desc">A modern analytics dashboard with real-time data visualization, customizable widgets, dark mode, and responsive layouts for enterprise clients.</p>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Live Demo ↗</a>
+              <a href="#" class="btn btn-outline btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass reveal delay-2">
+          <div class="project-img" style="--card-color:#10b981">
+            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="180" fill="url(#p3)"/>
+              <rect x="30" y="30" width="260" height="40" rx="8" fill="rgba(255,255,255,0.1)"/>
+              <rect x="40" y="42" width="80" height="16" rx="4" fill="rgba(255,255,255,0.25)"/>
+              <rect x="30" y="85" width="120" height="70" rx="8" fill="rgba(255,255,255,0.08)"/>
+              <rect x="165" y="85" width="125" height="70" rx="8" fill="rgba(255,255,255,0.08)"/>
+              <rect x="40" y="97" width="80" height="8" rx="3" fill="rgba(255,255,255,0.2)"/>
+              <defs><linearGradient id="p3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL</span>
+            </div>
+            <h3 class="project-title">Task Management App</h3>
+            <p class="project-desc">A collaborative project management tool with real-time updates, team workspaces, deadline tracking, and progress reporting built for remote teams.</p>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Live Demo ↗</a>
+              <a href="#" class="btn btn-outline btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass reveal delay-1">
+          <div class="project-img" style="--card-color:#f59e0b">
+            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="180" fill="url(#p4)"/>
+              <rect x="20" y="20" width="60" height="60" rx="8" fill="rgba(255,255,255,0.15)"/>
+              <rect x="90" y="20" width="60" height="60" rx="8" fill="rgba(255,255,255,0.1)"/>
+              <rect x="160" y="20" width="60" height="60" rx="8" fill="rgba(255,255,255,0.12)"/>
+              <rect x="230" y="20" width="70" height="60" rx="8" fill="rgba(255,255,255,0.08)"/>
+              <rect x="20" y="100" width="280" height="12" rx="4" fill="rgba(255,255,255,0.2)"/>
+              <rect x="20" y="122" width="200" height="10" rx="4" fill="rgba(255,255,255,0.12)"/>
+              <rect x="20" y="142" width="240" height="10" rx="4" fill="rgba(255,255,255,0.1)"/>
+              <defs><linearGradient id="p4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#ef4444"/></linearGradient></defs>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">HTML/CSS</span><span class="tag">JavaScript</span><span class="tag">API</span>
+            </div>
+            <h3 class="project-title">Portfolio & Blog CMS</h3>
+            <p class="project-desc">A lightweight content management system allowing creatives to manage their portfolio and blog posts with a clean editor interface and fast rendering.</p>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Live Demo ↗</a>
+              <a href="#" class="btn btn-outline btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass reveal delay-2">
+          <div class="project-img" style="--card-color:#ec4899">
+            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="180" fill="url(#p5)"/>
+              <circle cx="100" cy="90" r="50" fill="rgba(255,255,255,0.08)"/>
+              <circle cx="100" cy="90" r="35" fill="rgba(255,255,255,0.12)"/>
+              <line x1="100" y1="90" x2="100" y2="50" stroke="rgba(255,255,255,0.5)" stroke-width="3" stroke-linecap="round"/>
+              <line x1="100" y1="90" x2="128" y2="108" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"/>
+              <rect x="180" y="30" width="120" height="40" rx="6" fill="rgba(255,255,255,0.1)"/>
+              <rect x="190" y="42" width="60" height="8" rx="3" fill="rgba(255,255,255,0.3)"/>
+              <rect x="180" y="85" width="120" height="40" rx="6" fill="rgba(255,255,255,0.1)"/>
+              <rect x="180" y="140" width="120" height="30" rx="6" fill="rgba(255,255,255,0.08)"/>
+              <defs><linearGradient id="p5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ec4899"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">React</span><span class="tag">Chart.js</span><span class="tag">REST API</span>
+            </div>
+            <h3 class="project-title">Analytics & Reports Tool</h3>
+            <p class="project-desc">An interactive data visualization tool that pulls data from multiple APIs, renders rich charts, and generates exportable PDF reports for business intelligence.</p>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Live Demo ↗</a>
+              <a href="#" class="btn btn-outline btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card glass reveal delay-3">
+          <div class="project-img" style="--card-color:#14b8a6">
+            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="180" fill="url(#p6)"/>
+              <rect x="30" y="25" width="260" height="130" rx="12" fill="rgba(255,255,255,0.06)"/>
+              <rect x="45" y="40" width="80" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+              <rect x="45" y="58" width="230" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+              <rect x="45" y="72" width="180" height="6" rx="3" fill="rgba(255,255,255,0.12)"/>
+              <rect x="45" y="100" width="70" height="28" rx="6" fill="rgba(255,255,255,0.2)"/>
+              <rect x="125" y="100" width="70" height="28" rx="6" fill="rgba(255,255,255,0.1)"/>
+              <defs><linearGradient id="p6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Next.js</span><span class="tag">Tailwind</span><span class="tag">Prisma</span>
+            </div>
+            <h3 class="project-title">Healthcare Booking App</h3>
+            <p class="project-desc">A patient-doctor appointment booking platform with scheduling, notifications, medical records, and telemedicine video call capabilities.</p>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Live Demo ↗</a>
+              <a href="#" class="btn btn-outline btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── SERVICES ───────── -->
+  <section id="services" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">What I Offer</div>
+        <h2 class="section-title">My <span class="gradient-text">Services</span></h2>
+        <p class="section-sub">End-to-end solutions from concept to deployment.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card glass reveal">
+          <div class="service-icon">⚡</div>
+          <h3 class="service-title">Web Development</h3>
+          <p class="service-desc">Building performant, scalable web applications using modern frameworks. From landing pages to complex single-page apps with clean, maintainable code.</p>
+          <ul class="service-list">
+            <li>React / Next.js apps</li>
+            <li>Responsive design</li>
+            <li>Performance optimization</li>
+            <li>Cross-browser compatibility</li>
+          </ul>
+        </div>
+        <div class="service-card glass reveal delay-1 service-featured">
+          <div class="service-featured-badge">Most Popular</div>
+          <div class="service-icon">🎨</div>
+          <h3 class="service-title">UI/UX Design</h3>
+          <p class="service-desc">Designing intuitive, visually stunning interfaces that users love. From wireframes to polished prototypes with a strong focus on user experience.</p>
+          <ul class="service-list">
+            <li>Figma / Adobe XD</li>
+            <li>User research & testing</li>
+            <li>Design systems</li>
+            <li>Prototyping</li>
+          </ul>
+        </div>
+        <div class="service-card glass reveal delay-2">
+          <div class="service-icon">🔧</div>
+          <h3 class="service-title">Backend Development</h3>
+          <p class="service-desc">Creating robust APIs and server-side systems that power your applications. Secure, efficient, and built to scale with your growing business needs.</p>
+          <ul class="service-list">
+            <li>REST APIs (Node/Express)</li>
+            <li>Database architecture</li>
+            <li>Authentication & security</li>
+            <li>Cloud deployment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── CONTACT ───────── -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Let's <span class="gradient-text">Work Together</span></h2>
+        <p class="section-sub">Have a project in mind? I'd love to hear about it. Send me a message and let's make something great.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <strong>Location</strong>
+              <span>Dhaka, Bangladesh</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📧</div>
+            <div>
+              <strong>Email</strong>
+              <span>juyel@example.com</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📱</div>
+            <div>
+              <strong>Phone</strong>
+              <span>+880 1XXX-XXXXXX</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">🕐</div>
+            <div>
+              <strong>Response Time</strong>
+              <span>Within 24 hours</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form glass reveal delay-2" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Project inquiry..." />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-icon">→</span>
+          </button>
+          <div class="form-success" id="formSuccess">
+            ✅ Thanks! I'll get back to you within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── FOOTER ───────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="logo" href="#hero">JR<span class="dot">.</span></a>
+          <p>Crafting digital experiences with passion and precision.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn sm" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+            </a>
+            <a href="#" class="social-btn sm" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="#" class="social-btn sm" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="#">Web Development</a>
+            <a href="#">UI/UX Design</a>
+            <a href="#">Backend Dev</a>
+            <a href="#">Consulting</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Juyel Rana. Crafted with ♥ in Bangladesh.</span>
+        <a href="#hero" class="back-top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
