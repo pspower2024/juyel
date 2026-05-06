@@ -1,84 +1,271 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #f4f4f4;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Modern Portfolio</title>
 
-    header {
-      background: #333;
-      color: white;
-      padding: 20px;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    section {
-      padding: 40px;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
+}
 
-    .card {
-      background: white;
-      margin: 20px auto;
-      padding: 20px;
-      width: 80%;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
-    }
+body{
+  background:#0f172a;
+  color:white;
+}
 
-    footer {
-      background: #333;
-      color: white;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
+/* NAVBAR */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  left:0;
+  padding:15px 80px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  z-index:1000;
+}
 
-    a {
-      color: blue;
-    }
-  </style>
+nav h2{
+  color:#38bdf8;
+}
+
+nav a{
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#38bdf8;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background: radial-gradient(circle at top,#1e293b,#0f172a);
+}
+
+.hero h1{
+  font-size:50px;
+  animation:fadeIn 2s ease;
+}
+
+.hero span{
+  color:#38bdf8;
+}
+
+.hero p{
+  margin-top:10px;
+  opacity:0.8;
+}
+
+.btn{
+  margin-top:20px;
+  padding:10px 20px;
+  border:none;
+  background:#38bdf8;
+  color:black;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+}
+
+/* SECTIONS */
+section{
+  padding:80px 100px;
+}
+
+.title{
+  text-align:center;
+  font-size:30px;
+  margin-bottom:40px;
+  color:#38bdf8;
+}
+
+/* ABOUT */
+.about{
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+}
+
+.card{
+  flex:1;
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  backdrop-filter: blur(10px);
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+}
+
+/* SKILLS */
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  justify-content:center;
+}
+
+.skill{
+  padding:10px 20px;
+  background:#1e293b;
+  border-radius:20px;
+  transition:0.3s;
+}
+
+.skill:hover{
+  background:#38bdf8;
+  color:black;
+}
+
+/* PROJECTS */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.project{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  transition:0.3s;
+}
+
+.project:hover{
+  transform:scale(1.05);
+}
+
+/* CONTACT */
+.contact{
+  text-align:center;
+}
+
+input,textarea{
+  width:60%;
+  padding:10px;
+  margin:10px 0;
+  border:none;
+  border-radius:8px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  section{padding:60px 20px;}
+  nav{padding:15px 20px;}
+  .about{flex-direction:column;}
+  input,textarea{width:90%;}
+}
+</style>
 </head>
+
 <body>
 
-<header>
-  <h1>My Portfolio</h1>
-  <p>Web Developer | Student | Learner</p>
-</header>
-
-<section>
-  <div class="card">
-    <h2>About Me</h2>
-    <p>Hi! I am a beginner web developer. I love coding and building websites.</p>
+<!-- NAV -->
+<nav>
+  <h2>DevPortfolio</h2>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
+</nav>
 
-  <div class="card">
-    <h2>Skills</h2>
-    <p>HTML, CSS, JavaScript (Learning)</p>
-  </div>
-
-  <div class="card">
-    <h2>Projects</h2>
-    <p>1. Portfolio Website</p>
-    <p>2. Simple Calculator</p>
-  </div>
-
-  <div class="card">
-    <h2>Contact</h2>
-    <p>Email: yourmail@gmail.com</p>
-    <p>GitHub: <a href="https://github.com/">My Profile</a></p>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div>
+    <h1>Hi, I'm <span>Your Name</span></h1>
+    <p>Modern Web Developer | UI Designer | Learner</p>
+    <button class="btn" onclick="scrollToSection('projects')">View Projects</button>
   </div>
 </section>
 
-<footer>
-  © 2026 My Portfolio
-</footer>
+<!-- ABOUT -->
+<section id="about">
+  <div class="title">About Me</div>
+  <div class="about">
+    <div class="card">
+      <h3>Who I Am</h3>
+      <p>I am a passionate web developer building modern and responsive websites.</p>
+    </div>
+    <div class="card">
+      <h3>Goal</h3>
+      <p>To become a professional full-stack developer and build real-world apps.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="title">Skills</div>
+  <div class="skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">GitHub</div>
+    <div class="skill">React (Learning)</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="title">Projects</div>
+  <div class="projects">
+    <div class="project">Portfolio Website</div>
+    <div class="project">Calculator App</div>
+    <div class="project">To-Do List</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="title">Contact Me</div>
+  <div class="contact">
+    <input type="text" placeholder="Your Name"><br>
+    <input type="email" placeholder="Your Email"><br>
+    <textarea rows="5" placeholder="Message"></textarea><br>
+    <button class="btn">Send</button>
+  </div>
+</section>
+
+<script>
+// smooth scroll
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+</script>
 
 </body>
 </html>
