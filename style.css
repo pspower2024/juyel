@@ -251,7 +251,7 @@ ul { list-style: none; }
   font-size: 1.1rem; color: var(--text-secondary);
   max-width: 500px; margin-bottom: 36px; font-weight: 400;
 }
-.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+.hero-cta { display: flex; gap: 16px; flex-wrap: nowrap; margin-bottom: 48px; }
 .hero-stats { display: flex; align-items: center; gap: 24px; }
 .stat { display: flex; flex-direction: column; gap: 2px; }
 .stat-num {
@@ -441,6 +441,7 @@ ul { list-style: none; }
   transition: all var(--transition);
 }
 .service-card:hover { transform: translateY(-6px); border-color: var(--border-glow); }
+
 .service-featured {
   background: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(129,140,248,0.1));
   border-color: var(--border-glow);
