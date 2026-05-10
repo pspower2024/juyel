@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Skills - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,178 +15,281 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             min-height: 100vh;
-            padding: 40px 20px;
-            color: #333;
+            padding: 60px 20px;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(155, 89, 182, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+            animation: fadeInDown 0.8s ease;
         }
 
         .header h1 {
-            font-size: 48px;
-            color: #2c3e50;
+            font-family: 'Syne', sans-serif;
+            font-size: 56px;
+            background: linear-gradient(135deg, #3498db, #9b59b6, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 15px;
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
         .header p {
             font-size: 18px;
-            color: #7f8c8d;
+            color: #b0b0b0;
             font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-bottom: 80px;
         }
 
         .skill-category {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.6s ease;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .skill-category:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transform: translateY(-12px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 16px 48px rgba(52, 152, 219, 0.2);
+        }
+
+        .skill-category:hover::before {
+            opacity: 1;
         }
 
         .category-title {
-            font-size: 24px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-weight: 600;
+            font-family: 'Syne', sans-serif;
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 24px;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            letter-spacing: -0.5px;
         }
 
         .category-icon {
-            width: 8px;
-            height: 8px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             display: inline-block;
+            box-shadow: 0 0 12px currentColor;
         }
 
         .category-frontend .category-icon {
             background: #3498db;
+            color: #3498db;
         }
 
         .category-backend .category-icon {
             background: #e74c3c;
+            color: #e74c3c;
         }
 
         .category-devops .category-icon {
             background: #f39c12;
+            color: #f39c12;
         }
 
         .category-it .category-icon {
             background: #9b59b6;
+            color: #9b59b6;
         }
 
         .category-tools .category-icon {
             background: #27ae60;
+            color: #27ae60;
         }
 
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
 
         .skill-tag {
             display: inline-block;
-            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
-            color: #2c3e50;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #e0e0e0;
+            padding: 10px 18px;
+            border-radius: 24px;
+            font-size: 13px;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: default;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            letter-spacing: 0.3px;
         }
 
         .skill-tag:hover {
-            transform: scale(1.05);
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            color: white;
+            transform: translateY(-4px) scale(1.08);
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.3), rgba(52, 152, 219, 0.1));
+            color: #3498db;
+            border-color: #3498db;
+            box-shadow: 0 4px 16px rgba(52, 152, 219, 0.3);
         }
 
         .category-backend .skill-tag:hover {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.3), rgba(231, 76, 60, 0.1));
+            color: #e74c3c;
+            border-color: #e74c3c;
+            box-shadow: 0 4px 16px rgba(231, 76, 60, 0.3);
         }
 
         .category-devops .skill-tag:hover {
-            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.3), rgba(243, 156, 18, 0.1));
+            color: #f39c12;
+            border-color: #f39c12;
+            box-shadow: 0 4px 16px rgba(243, 156, 18, 0.3);
         }
 
         .category-it .skill-tag:hover {
-            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.3), rgba(155, 89, 182, 0.1));
+            color: #9b59b6;
+            border-color: #9b59b6;
+            box-shadow: 0 4px 16px rgba(155, 89, 182, 0.3);
         }
 
         .category-tools .skill-tag:hover {
-            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.3), rgba(39, 174, 96, 0.1));
+            color: #27ae60;
+            border-color: #27ae60;
+            box-shadow: 0 4px 16px rgba(39, 174, 96, 0.3);
         }
 
         .contact-section {
             text-align: center;
-            padding: 40px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.8s ease 0.2s both;
         }
 
         .contact-section h2 {
-            font-size: 28px;
-            color: #2c3e50;
-            margin-bottom: 20px;
+            font-family: 'Syne', sans-serif;
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .contact-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            background: linear-gradient(135deg, #3498db, #2980b9);
             color: white;
-            padding: 14px 40px;
-            border-radius: 8px;
+            padding: 16px 48px;
+            border-radius: 10px;
             text-decoration: none;
             font-size: 16px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
             cursor: pointer;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 16px rgba(52, 152, 219, 0.3);
         }
 
         .contact-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(135deg, #2980b9, #2471a3);
         }
 
         .contact-btn:active {
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             body {
-                padding: 20px 15px;
+                padding: 40px 15px;
             }
 
             .header h1 {
-                font-size: 36px;
+                font-size: 42px;
                 margin-bottom: 10px;
             }
 
@@ -193,7 +299,53 @@
 
             .skills-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 24px;
+                margin-bottom: 60px;
+            }
+
+            .skill-category {
+                padding: 28px;
+            }
+
+            .category-title {
+                font-size: 20px;
+                margin-bottom: 18px;
+            }
+
+            .contact-section {
+                padding: 35px;
+            }
+
+            .contact-section h2 {
+                font-size: 26px;
+                margin-bottom: 18px;
+            }
+
+            .contact-btn {
+                padding: 14px 36px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 30px 12px;
+            }
+
+            .header {
+                margin-bottom: 50px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .skills-grid {
+                gap: 16px;
                 margin-bottom: 40px;
             }
 
@@ -202,50 +354,44 @@
             }
 
             .category-title {
-                font-size: 20px;
-            }
-
-            .contact-btn {
-                padding: 12px 30px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 28px;
-            }
-
-            .header p {
-                font-size: 14px;
-            }
-
-            .category-title {
                 font-size: 18px;
+                margin-bottom: 14px;
             }
 
             .skill-tag {
-                padding: 6px 12px;
+                padding: 8px 14px;
                 font-size: 12px;
+            }
+
+            .contact-section {
+                padding: 25px;
             }
 
             .contact-section h2 {
                 font-size: 22px;
+            }
+
+            .contact-btn {
+                padding: 12px 28px;
+                font-size: 14px;
             }
         }
 
         /* Back to home link */
         .nav-link {
             display: inline-block;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             color: #3498db;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            font-size: 14px;
         }
 
         .nav-link:hover {
             color: #2980b9;
+            transform: translateX(-4px);
         }
     </style>
 </head>
@@ -255,7 +401,7 @@
 
         <div class="header">
             <h1>My Skills</h1>
-            <p>A comprehensive overview of my technical expertise</p>
+            <p>Technical expertise and professional capabilities</p>
         </div>
 
         <div class="skills-grid">
@@ -328,44 +474,68 @@
 
         <!-- Contact Section -->
         <div class="contact-section">
-            <h2>Interested in working together?</h2>
-            <a href="contact.html" class="contact-btn">Contact Me</a>
+            <h2>Ready to collaborate?</h2>
+            <a href="index.html#contact" class="contact-btn">Get in Touch</a>
         </div>
     </div>
 
     <script>
-        // Add smooth scroll behavior
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Add fade-in animation on page load
-        window.addEventListener('load', () => {
-            const elements = document.querySelectorAll('.skill-category, .contact-section');
-            elements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.animation = `fadeIn 0.6s ease-out ${index * 0.1}s forwards`;
+        // Add floating animation to category icons
+        const icons = document.querySelectorAll('.category-icon');
+        icons.forEach((icon, index) => {
+            icon.style.animation = `float 3s ease-in-out ${index * 0.2}s infinite`;
+        });
+
+        // Add dynamic glow effect on skill tags
+        const skillTags = document.querySelectorAll('.skill-tag');
+        skillTags.forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.textShadow = '0 0 10px currentColor';
+            });
+            tag.addEventListener('mouseleave', function() {
+                this.style.textShadow = 'none';
             });
         });
 
-        // Add animation keyframes dynamically
+        // Add float animation
         const style = document.createElement('style');
         style.textContent = `
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-8px); }
             }
         `;
         document.head.appendChild(style);
