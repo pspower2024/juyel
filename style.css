@@ -366,25 +366,18 @@ ul { list-style: none; }
 /* ══════════════════════════════════════════
    SKILLS
    ══════════════════════════════════════════ */
-.skills-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px;
+.skills-cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 40px;
 }
-.skill-category { padding: 28px; transition: all var(--transition); }
-.skill-category:hover { transform: translateY(-4px); }
-.cat-title {
-  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem;
-  color: var(--accent); margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase;
+.skill-card {
+  padding: 28px; position: relative; transition: all var(--transition);
 }
-.skill-bars { display: flex; flex-direction: column; gap: 20px; }
-.skill-meta { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; }
-.pct-label { color: var(--accent); font-weight: 600; }
-.skill-track { height: 6px; background: var(--border); border-radius: 99px; overflow: hidden; }
-.skill-bar {
-  height: 100%; border-radius: 99px; width: 0;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+.skill-card:hover { transform: translateY(-6px); border-color: var(--border-glow); }
+.skill-icon { font-size: 2.5rem; margin-bottom: 20px; }
+.skill-title {
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.2rem; margin-bottom: 12px;
 }
-.skill-bar.animated { width: var(--w); }
+.skill-desc { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7; }
 
 .tech-icons { overflow: hidden; }
 .tech-scroll { overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent 0, black 10%, black 90%, transparent 100%); }
@@ -558,7 +551,7 @@ ul { list-style: none; }
    RESPONSIVE
    ══════════════════════════════════════════ */
 @media (max-width: 1024px) {
-  .skills-grid { grid-template-columns: 1fr; }
+  .skills-cards { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-image-col { justify-content: flex-start; }
